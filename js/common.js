@@ -1,11 +1,9 @@
-function $(selector) {
-  return document.querySelector(selector);
+function $(id){
+    return document.querySelector(id)
 }
-
-function $$(selector) {
-  return document.querySelectorAll(selector);
+function $$(id){
+    return document.querySelectorAll(id)
 }
-
-function $$$(tagName) {
-  return document.createElement(tagName);
+function $$$(name){
+    return document.createElement(name)
 }

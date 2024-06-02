@@ -1,4 +1,4 @@
-var API = (function () {
+var API = (function(){
   const BASE_URL = 'https://study.duyiedu.com';
   const TOKEN_KEY = 'token';
 
@@ -26,24 +26,23 @@ var API = (function () {
     });
   }
 
+
   async function reg(userInfo) {
     const resp = await post('/api/user/reg', userInfo);
     return await resp.json();
   }
 
-  async function login(loginInfo) {
-    const resp = await post('/api/user/login', loginInfo);
-    const result = await resp.json();
-    if (result.code === 0) {
-      // 登录成功
-      // 将响应头中的token保存起来（localStorage）
-      const token = resp.headers.get('authorization');
-      localStorage.setItem(TOKEN_KEY, token);
+async function login(loginInfo){
+    const resp = await post('/api/user/login',loginInfo)
+    const result = await resp.json()
+    if(result.code === 0){
+        const token = resp.headers.get('authorization')
+        localStorage.setItem(TOKEN_KEY,token)
     }
-    return result;
-  }
+    return result 
+}
 
-  async function exists(loginId) {
+async function exists(loginId) {
     const resp = await get('/api/user/exists?loginId=' + loginId);
     return await resp.json();
   }
@@ -76,6 +75,6 @@ var API = (function () {
     profile,
     sendChat,
     getHistory,
-    loginOut,
-  };
-})();
+    loginOut,}
+    ;})()
+    //闭包，将函数内部东西返回到外边

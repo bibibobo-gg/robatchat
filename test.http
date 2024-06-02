@@ -1,0 +1,6 @@
+GET  https://study.duyiedu.com/api/user/login
+
+{
+    "loginId":"haha",
+    "loginPwd":"123123"
+}
